@@ -1,0 +1,117 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    android:orientation="vertical"
+    tools:context="com.cdut.sign.activity.LoginActivity" >
+    
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"
+        android:drawableTop="@drawable/logo"
+        android:text="@string/logo_annotation" />
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:layout_width="70dp"
+            android:layout_height="54dp"
+            android:background="@color/main_color" >
+
+            <ImageView
+                android:layout_width="31.5dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:src="@drawable/login_phone_icon"
+                android:contentDescription="@null" />
+        </FrameLayout>
+
+        <EditText
+            android:id="@+id/login_phone"
+            android:layout_width="186dp"
+            android:layout_height="54dp"
+            android:background="@color/grey"
+            android:hint="@string/prompt"
+            android:inputType="phone"
+            android:selectAllOnFocus="true" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:layout_width="70dp"
+            android:layout_height="54dp"
+            android:background="@color/main_color" >
+
+            <ImageView
+                android:layout_width="31.5dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:src="@drawable/login_psw_icon"
+                android:contentDescription="@null" />
+        </FrameLayout>
+
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="186dp"
+            android:layout_height="54dp"
+            android:background="@color/grey"
+            android:hint="@string/promptPassword"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <CheckBox
+            android:id="@+id/remenber_me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:button="@drawable/login_checkbox_style"
+            android:checked="true"
+            android:text="@string/remember_me"
+            android:textSize="7.5pt" />
+
+        <CheckBox
+            android:id="@+id/auto_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:button="@drawable/login_checkbox_style"
+            android:checked="true"
+            android:text="@string/auto_login"
+            android:textSize="7.5pt" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="200dp"
+        android:layout_height="54dp"
+        android:layout_gravity="center"
+        android:background="@drawable/login_list"
+        android:shrinkColumns="0"
+        android:text="@string/enter"
+        android:textColor="@color/white"
+        android:textSize="12pt" />
+
+</LinearLayout>
