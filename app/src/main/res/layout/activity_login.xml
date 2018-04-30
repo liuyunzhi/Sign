@@ -1,47 +1,46 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.cdut.sign.activity.LoginActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.cdut.sign.activity.LoginActivity" >
+    android:background="@drawable/login_background" >
     
-    <TextView 
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="30dp"
-        android:drawableTop="@drawable/logo"
-        android:text="@string/logo_annotation" />
-    
+        android:src="@mipmap/logo_foreground" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:textSize="@dimen/text_size_medium"
+        android:textColor="@color/main_color"
+        android:text="@string/app_name"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginBottom="15dp"
+        android:gravity="center"
         android:orientation="horizontal" >
 
-        <FrameLayout
-            android:layout_width="70dp"
-            android:layout_height="54dp"
-            android:background="@color/main_color" >
-
-            <ImageView
-                android:layout_width="31.5dp"
-                android:layout_height="36dp"
-                android:layout_gravity="center"
-                android:src="@drawable/login_phone_icon"
-                android:contentDescription="@null" />
-        </FrameLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/login_account" />
 
         <EditText
-            android:id="@+id/login_phone"
+            android:id="@+id/login_account"
             android:layout_width="186dp"
-            android:layout_height="54dp"
-            android:background="@color/grey"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:hint="@string/prompt"
-            android:inputType="phone"
+            android:background="@color/white"
+            android:inputType="number"
             android:selectAllOnFocus="true" />
         
     </LinearLayout>
@@ -49,67 +48,55 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
         android:orientation="horizontal" >
 
-        <FrameLayout
-            android:layout_width="70dp"
-            android:layout_height="54dp"
-            android:background="@color/main_color" >
-
-            <ImageView
-                android:layout_width="31.5dp"
-                android:layout_height="36dp"
-                android:layout_gravity="center"
-                android:src="@drawable/login_psw_icon"
-                android:contentDescription="@null" />
-        </FrameLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/login_passward" />
 
         <EditText
             android:id="@+id/login_password"
             android:layout_width="186dp"
-            android:layout_height="54dp"
-            android:background="@color/grey"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:hint="@string/promptPassword"
+            android:background="@color/white"
             android:inputType="textPassword"
             android:selectAllOnFocus="true" />
-        
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:orientation="horizontal" >
 
         <CheckBox
             android:id="@+id/remenber_me"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:button="@drawable/login_checkbox_style"
-            android:checked="true"
+            android:layout_marginRight="50dp"
             android:text="@string/remember_me"
-            android:textSize="7.5pt" />
+            android:checked="true" />
 
         <CheckBox
             android:id="@+id/auto_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:button="@drawable/login_checkbox_style"
-            android:checked="true"
+            android:layout_marginLeft="50dp"
             android:text="@string/auto_login"
-            android:textSize="7.5pt" />
+            android:checked="true" />
     </LinearLayout>
 
     <Button
         android:id="@+id/button_login"
         android:layout_width="200dp"
-        android:layout_height="54dp"
-        android:layout_gravity="center"
-        android:background="@drawable/login_list"
-        android:shrinkColumns="0"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:background="@color/main_color"
         android:text="@string/enter"
         android:textColor="@color/white"
         android:textSize="12pt" />
