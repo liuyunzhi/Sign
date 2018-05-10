@@ -3,14 +3,13 @@ package com.cdut.sign.fragment;
 import java.util.Map;
 
 import com.amap.api.services.geocoder.GeocodeSearch;
-import com.cdut.sign.App;
+import com.cdut.sign.SignApplication;
 import com.cdut.sign.R;
 import com.cdut.sign.activity.SuccessActivity;
 //import com.cdut.sign.net.SendPost;
 import com.cdut.sign.servise.AMapLocationService;
 import com.cdut.sign.util.GeocoderUtil;
 
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -35,7 +34,7 @@ public class HomePageFragment extends Fragment {
 	private TextView signTime;
 	private TextView signPosition;
 	private TextView currentPosition;
-	private App app;
+	private SignApplication signApplication;
 	//个人信息
 	private Map<String, String> personalInforMap;
 	//广播消息
@@ -62,9 +61,9 @@ public class HomePageFragment extends Fragment {
 		signPosition = (TextView) view.findViewById(R.id.sign_position);
 		currentPosition = (TextView) view.findViewById(R.id.current_position);
 		
-		app = (App)getActivity().getApplication();
+		signApplication = (SignApplication)getActivity().getApplication();
 		//获取数据
-		personalInforMap = app.getPersonalInforMap();
+		personalInforMap = signApplication.getPersonInfoMap();
 		//显示数据
 //		imageHead.setImageDrawable(map.get("img"));
 //		department.setText(map.get("company"));

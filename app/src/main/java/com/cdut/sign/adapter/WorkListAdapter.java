@@ -1,7 +1,7 @@
 package com.cdut.sign.adapter;
 
 
-import com.cdut.sign.App;
+import com.cdut.sign.SignApplication;
 import com.cdut.sign.R;
 import com.cdut.sign.util.WorkInfor;
 
@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class WorkListAdapter extends BaseAdapter{
 	
@@ -25,12 +24,12 @@ public class WorkListAdapter extends BaseAdapter{
 
 	@Override
 	public int getCount() {
-		return App.getWorkList().size();
+		return SignApplication.getWorkList().size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return App.getWorkList().get(position);
+		return SignApplication.getWorkList().get(position);
 	}
 
 	@Override
@@ -42,7 +41,7 @@ public class WorkListAdapter extends BaseAdapter{
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View view = View.inflate(context, R.layout.item_work, null);
 		//获取item对应的数据对象
-		WorkInfor student = App.getWorkList().get(position);
+		WorkInfor student = SignApplication.getWorkList().get(position);
 		
 		//初始化view
         TextView content=(TextView) view.findViewById(R.id.item_work_content);

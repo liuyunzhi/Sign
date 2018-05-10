@@ -3,7 +3,7 @@ package com.cdut.sign.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cdut.sign.App;
+import com.cdut.sign.SignApplication;
 import com.cdut.sign.R;
 import com.cdut.sign.activity.EditWorkActivity;
 import com.cdut.sign.adapter.WorkListAdapter;
@@ -12,7 +12,6 @@ import com.cdut.sign.util.WorkInfor;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,7 +20,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class WorkFragment extends Fragment {
 	
@@ -34,7 +32,7 @@ public class WorkFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		App.setWorkList(getList());
+		SignApplication.setWorkList(getList());
 		adapter = new WorkListAdapter(getActivity());
 		intent = new Intent(getActivity(), EditWorkActivity.class);
 	}
@@ -53,7 +51,7 @@ public class WorkFragment extends Fragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				itemPosition = position;
-				List<WorkInfor> list = App.getWorkList();
+				List<WorkInfor> list = SignApplication.getWorkList();
 				intent.putExtra("content", list.get(position).getContent());
 				intent.putExtra("isNew", false);
 				startActivityForResult(intent, 2);
@@ -92,7 +90,7 @@ public class WorkFragment extends Fragment {
 			WorkInfor workInfor = new WorkInfor();
 			workInfor.setContent(resultContent);
 	        workInfor.setTime(resultTime);
-	        App.getWorkList().add(workInfor);
+	        SignApplication.getWorkList().add(workInfor);
 	        adapter.notifyDataSetChanged();
 		}
 		//修改日志
@@ -104,8 +102,8 @@ public class WorkFragment extends Fragment {
 			//上传服务器
 			
 			//显示
-	        App.getWorkList().get(itemPosition).setContent(resultContent);
-	        App.getWorkList().get(itemPosition).setTime(resultTime);
+	        SignApplication.getWorkList().get(itemPosition).setContent(resultContent);
+	        SignApplication.getWorkList().get(itemPosition).setTime(resultTime);
 	        adapter.notifyDataSetChanged();
 		}
 	}

@@ -3,9 +3,8 @@ package com.cdut.sign.fragment;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import com.cdut.sign.App;
+import com.cdut.sign.SignApplication;
 import com.cdut.sign.R;
 import com.cdut.sign.adapter.MyExpandableListAdapter;
 import com.cdut.sign.util.ChildInfor;
@@ -24,7 +23,7 @@ public class AttendanceRecordFragment extends Fragment {
 	private MyExpandableListAdapter listAdapter = null;   
     private ExpandableListView recordList;
     private List<GroupInfor> group;
-    private App app;
+    private SignApplication signApplication;
     private Map<String, String> map;
     
     @Override
@@ -35,8 +34,8 @@ public class AttendanceRecordFragment extends Fragment {
 		
 		recordList = (ExpandableListView) view.findViewById(R.id.record_list);   
 		group = new ArrayList<GroupInfor>();
-		app = (App)getActivity().getApplication();
-		map = app.getAttendanceRecordMap();
+		signApplication = (SignApplication)getActivity().getApplication();
+		map = signApplication.getAttendanceRecordMap();
 		
 //		Set<String> set = map.keySet();
 //		for (String key : set)

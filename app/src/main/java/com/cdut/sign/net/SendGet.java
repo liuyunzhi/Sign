@@ -1,49 +1,54 @@
 package com.cdut.sign.net;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class SendGet {
 
-	private static String IP = "";
-	
-	//通过GET方式获取HTTP服务器数据
-	public static String executeHttpGet(String account, String pwd)
-	{
-		HttpURLConnection conn = null;
-        InputStream is = null;
-
+    //通过GET方式获取HTTP服务器数据
+    public static String executeHttpGet(String domain, String params) {
+        HttpURLConnection httpURLConnection = null;
+        BufferedReader bufferedReader = null;
+        StringBuffer result = null;
         try {
-            // 用户名 密码
-            // URL 地址
-            String path = "http://" + IP + "/HelloWeb/LogLet";
-            path = path + "?account=" + account + "&pwd=" + pwd;
-
-            conn = (HttpURLConnection) new URL(path).openConnection();
-            conn.setConnectTimeout(3000); // 设置超时时间
-            conn.setReadTimeout(3000);
-            conn.setDoInput(true);
-            conn.setRequestMethod("GET"); // 设置获取信息方式
-            conn.setRequestProperty("Charset", "UTF-8"); // 设置接收数据编码格式
-
-            if (conn.getResponseCode() == 200) {
-                is = conn.getInputStream();
-                return parseInfo(is);
+            String path = domain + "?" + params;
+            URL url = new URL(path);
+            httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            httpURLConnection.setRequestProperty("Charset", "UTF-8");
+            httpURLConnection.setRequestProperty("Accept", "application/json");
+            httpURLConnection.setRequestMethod("GET");
+            // 设置连接超时
+            httpURLConnection.setConnectTimeout(5000);
+            // 设置读取超时
+            httpURLConnection.setReadTimeout(8000);
+            httpURLConnection.connect();
+            if (httpURLConnection.getResponseCode() == 200) {
+                bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+                String line;
+                result = new StringBuffer();
+                while ((line = bufferedReader.readLine()) != null) {
+                    //转化为UTF-8的编码格式
+                    line = new String(line.getBytes("UTF-8"));
+                    result.append(line);
+                }
             }
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             // 意外退出时进行连接关闭保护
-            if (conn != null) {
-                conn.disconnect();
+            if (httpURLConnection != null) {
+//                httpURLConnection.dinputStreamconnect();
             }
-            if (is != null) {
+            if (bufferedReader != null) {
                 try {
-                    is.close();
+                    bufferedReader.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -51,23 +56,5 @@ public class SendGet {
 
         }
         return null;
-    }
-
-    // 将输入流转化为 String 型 
-    private static String parseInfo(InputStream inStream) throws Exception {
-        byte[] data = read(inStream);
-        // 转化为字符串
-        return new String(data, "UTF-8");
-    }
-	// 将输入流转化为byte型 
-    public static byte[] read(InputStream inStream) throws Exception {
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        byte[] buffer = new byte[1024];
-        int len = 0;
-        while ((len = inStream.read(buffer)) != -1) {
-            outputStream.write(buffer, 0, len);
-        }
-        inStream.close();
-        return outputStream.toByteArray();
     }
 }

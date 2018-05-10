@@ -2,7 +2,7 @@ package com.cdut.sign.fragment;
 
 import java.util.Map;
 
-import com.cdut.sign.App;
+import com.cdut.sign.SignApplication;
 import com.cdut.sign.R;
 import com.cdut.sign.activity.LocationMapActivity;
 //import com.cdut.sign.net.SendPost;
@@ -40,7 +40,7 @@ public class PersonalInforFragment extends Fragment {
 	private TableLayout modifyPassword;
 	AlertDialog.Builder dialog;
 	private Map<String, String> map;
-	private App app;
+	private SignApplication signApplication;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -61,8 +61,8 @@ public class PersonalInforFragment extends Fragment {
 		position = (TextView) view.findViewById(R.id.position);
 		content = (TextView) view.findViewById(R.id.content);
 		
-		app = (App)getActivity().getApplication();
-		map = app.getPersonalInforMap();
+		signApplication = (SignApplication)getActivity().getApplication();
+		map = signApplication.getPersonInfoMap();
 		
 //		imageHead.setImageDrawable(map.get("img"));
 //		name.setText(map.get("name"));
