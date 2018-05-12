@@ -55,7 +55,7 @@ public class LoginActivity extends Activity {
         //全局数据
         signApplication = (SignApplication) getApplication();
 
-        if (preferences.getBoolean("auto_login", false)) {
+        if (preferences.getBoolean("autoLogin", false)) {
             Intent intent = new Intent();
             intent.setClass(LoginActivity.this, MainActivity.class);
             startActivity(intent);
@@ -76,6 +76,16 @@ public class LoginActivity extends Activity {
         remember_me = findViewById(R.id.remenber_me);
         auto_login = findViewById(R.id.auto_login);
         editor = preferences.edit();
+
+        if (preferences.getBoolean("rememberMe", false)) {
+            login_account.setText(preferences.getString("account",""));
+            login_password.setText(preferences.getString("password",""));
+            remember_me.setChecked(true);
+            auto_login.setChecked(false);
+        } else {
+            remember_me.setChecked(false);
+            auto_login.setChecked(false);
+        }
 
         // 为“自动登录”绑定事件监听器(与“记住我”联动)
         auto_login.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -111,13 +121,14 @@ public class LoginActivity extends Activity {
                 }
                 //是否“记住我”
                 if (isRememberMe) {
+                    editor.putBoolean("rememberMe", true);
                     editor.putString("account", account);
-                    editor.putString("Password", password);
+                    editor.putString("password", password);
                     editor.commit();
                 }
                 //是否“自动登陆”
                 if (isAutoLogin) {
-                    editor.putBoolean("auto_login", true);
+                    editor.putBoolean("autoLogin", true);
                     editor.commit();
                 }
                 dialog = new ProgressDialog(LoginActivity.this);

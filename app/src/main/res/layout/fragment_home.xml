@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -8,105 +8,65 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="@dimen/home_page_margin"
         android:layout_marginLeft="@dimen/home_page_margin"
         android:layout_marginBottom="@dimen/home_page_margin"
         android:layout_marginRight="@dimen/home_page_margin"
         android:orientation="horizontal" >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/image_head_home_page"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/head"
-                tools:ignore="ContentDescription" />
-            
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/home_page_margin"
-                android:orientation="horizontal" >
-
-                <TextView
-                    android:id="@+id/department_home_page"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/home_page_margin_small"
-                    android:text="@string/department_name"
-                    android:textColor="@color/main_color"
-                    android:textSize="@dimen/text_size_normal" />
-
-                <TextView
-                    android:id="@+id/name_home_page"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/home_page_margin_small"
-                    android:text="@string/full_name"
-                    android:textSize="@dimen/text_size_normal" />
-                
-            </LinearLayout>
-            
-        </LinearLayout>
-        
         <ImageView
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:src="@drawable/bar" />
+            android:id="@+id/image_head_home_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/head" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextClock
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:format12Hour="yyyy年 MM月 dd日"
+                android:format24Hour="yyyy 年 MM 月 dd 日"
                 android:textSize="@dimen/text_size_normal" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/home_page_margin"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextClock
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/home_page_margin_small"
-                    android:format12Hour="EEEE"
+                    android:format24Hour="EEE"
                     android:textSize="@dimen/text_size_normal" />
 
                 <TextClock
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/home_page_margin_small"
-                    android:format12Hour="aa"
+                    android:format24Hour="a"
                     android:textColor="@color/main_color"
                     android:textSize="@dimen/text_size_normal" />
-                
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/home_page_margin"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextClock
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/home_page_margin_small"
-                    android:format12Hour="hh:mm"
+                    android:format24Hour="h:mm"
                     android:textColor="@color/main_color"
                     android:textSize="@dimen/text_size_large" />
 
@@ -114,14 +74,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/home_page_margin_small"
-                    android:format12Hour="ss"
+                    android:format24Hour="ss"
                     android:textColor="@color/main_color"
                     android:textSize="@dimen/text_size_normal" />
-                
+
             </LinearLayout>
-            
+
         </LinearLayout>
-        
+
     </LinearLayout>
     
     <Button 

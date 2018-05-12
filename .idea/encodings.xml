@@ -4,12 +4,12 @@
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/activity/LocationMapActivity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/adapter/WorkListAdapter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/fragment/AttendanceRecordFragment.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/fragment/HomePageFragment.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/fragment/HomeFragment.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/fragment/PersonalInforFragment.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/fragment/WorkFragment.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/net/SendGet.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/net/SendPost.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/servise/AMapLocationService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/service/AMapLocationService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/util/GeocoderUtil.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/util/MassageDailog.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

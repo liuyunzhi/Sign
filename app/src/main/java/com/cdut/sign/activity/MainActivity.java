@@ -20,10 +20,10 @@ public class MainActivity extends FragmentActivity {
     private ViewPager viewPager;
     private RadioGroup radioGroup;
 
-    private HomePageFragment homePage;
+    private HomeFragment home;
     private AttendanceRecordFragment attendanceRecord;
     private WorkFragment work;
-    private PersonalInforFragment personalInfor;
+    private PersonalInforFragment personalInfo;
     List<Fragment> allFragment;
 
     @SuppressWarnings("deprecation")
@@ -31,7 +31,7 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        radioGroup = (RadioGroup) findViewById(R.id.radio_group);
+        radioGroup = findViewById(R.id.radio_group);
 
         //RadioGroup选中状态改变监听
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener()
@@ -56,18 +56,18 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        viewPager = (ViewPager) findViewById(R.id.view_pager);
-        allFragment = new ArrayList<Fragment>();
+        viewPager = findViewById(R.id.view_pager);
+        allFragment = new ArrayList<>();
 
-        homePage = new HomePageFragment();
+        home = new HomeFragment();
         attendanceRecord = new AttendanceRecordFragment();
         work = new WorkFragment();
-        personalInfor = new PersonalInforFragment();
+        personalInfo = new PersonalInforFragment();
 
-        allFragment.add(homePage);
+        allFragment.add(home);
         allFragment.add(attendanceRecord);
         allFragment.add(work);
-        allFragment.add(personalInfor);
+        allFragment.add(personalInfo);
 
         //ViewPager设置适配器
         viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), allFragment));
