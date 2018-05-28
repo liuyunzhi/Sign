@@ -14,14 +14,14 @@ public class SignApplication extends Application {
     private String apiUrl;
     private Map<String, String> personInfoMap;
     private Map<String, String> currentCourseMap;
-    private Map<String, String> attendanceRecordMap;
+    private Map<String, String> signRecordMap;
     private static List<Note> noteList;
 
     @Override
     public void onCreate() {
         super.onCreate();
         personInfoMap = new HashMap<>();
-        attendanceRecordMap = new HashMap<>();
+        signRecordMap = new HashMap<>();
         noteList = new ArrayList<>();
         apiUrl = "http://39.106.160.99/api/index";
     }
@@ -34,12 +34,12 @@ public class SignApplication extends Application {
         return personInfoMap;
     }
 
-    public void setAttendanceRecordMap(Map<String, String> map) {
-        this.attendanceRecordMap = map;
+    public void setSignRecordMap(Map<String, String> map) {
+        this.signRecordMap = map;
     }
 
-    public Map<String, String> getAttendanceRecordMap() {
-        return attendanceRecordMap;
+    public Map<String, String> getSignRecordMap() {
+        return signRecordMap;
     }
 
     public static void setNoteList(List<Note> list) {

@@ -8,10 +8,10 @@
     android:orientation="vertical" >
     
     <ImageView 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
         android:layout_marginBottom="@dimen/home_page_margin"
-        android:src="@drawable/success"/>
+        android:src="@drawable/sign_success"/>
     
     <TextView 
         android:layout_width="wrap_content"

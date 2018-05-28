@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cdut.sign.R;
-import com.cdut.sign.adapter.MyFragmentPagerAdapter;
+import com.cdut.sign.adapter.MainFragmentPagerAdapter;
 import com.cdut.sign.fragment.*;
 
 import android.os.Bundle;
@@ -20,11 +20,12 @@ public class MainActivity extends FragmentActivity {
     private ViewPager viewPager;
     private RadioGroup radioGroup;
 
-    private HomeFragment home;
-    private AttendanceRecordFragment attendanceRecord;
-    private NoteFragment work;
-    private PersonInfoFragment personalInfo;
-    List<Fragment> allFragment;
+    private HomeFragment homeFragment;
+    private SignRecordsFragment signRecordsFragment;
+    private NoteFragment noteFragment;
+    private PersonInfoFragment personInfoFragment;
+
+    private List<Fragment> allFragment;
 
     @SuppressWarnings("deprecation")
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,18 +60,18 @@ public class MainActivity extends FragmentActivity {
         viewPager = findViewById(R.id.view_pager);
         allFragment = new ArrayList<>();
 
-        home = new HomeFragment();
-        attendanceRecord = new AttendanceRecordFragment();
-        work = new NoteFragment();
-        personalInfo = new PersonInfoFragment();
+        homeFragment = new HomeFragment();
+        signRecordsFragment = new SignRecordsFragment();
+        noteFragment = new NoteFragment();
+        personInfoFragment = new PersonInfoFragment();
 
-        allFragment.add(home);
-        allFragment.add(attendanceRecord);
-        allFragment.add(work);
-        allFragment.add(personalInfo);
+        allFragment.add(homeFragment);
+        allFragment.add(signRecordsFragment);
+        allFragment.add(noteFragment);
+        allFragment.add(personInfoFragment);
 
         //ViewPager设置适配器
-        viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), allFragment));
+        viewPager.setAdapter(new MainFragmentPagerAdapter(getSupportFragmentManager(), allFragment));
         //ViewPager显示第一个Fragment
         viewPager.setCurrentItem(0);
         //防止界面之间来回切换时重新加载

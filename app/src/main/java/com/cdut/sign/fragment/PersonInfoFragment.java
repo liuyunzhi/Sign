@@ -5,11 +5,10 @@ import java.util.Map;
 import com.cdut.sign.SignApplication;
 import com.cdut.sign.R;
 //import com.cdut.sign.net.SendPost;
-import com.cdut.sign.activity.AdActivity;
 import com.cdut.sign.activity.LoginActivity;
 import com.cdut.sign.net.SendPost;
 import com.cdut.sign.util.Json;
-import com.cdut.sign.util.MassageDailog;
+import com.cdut.sign.util.MassageDialog;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -161,7 +160,7 @@ public class PersonInfoFragment extends Fragment {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            MassageDailog.showDialog(getContext(), "密码修改成功");
+                            MassageDialog.showDialog(getContext(), "密码修改成功");
                             dialog.cancel();
                         }
                     });
@@ -169,7 +168,7 @@ public class PersonInfoFragment extends Fragment {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            MassageDailog.showDialog(getContext(), "密码修改失败");
+                            MassageDialog.showDialog(getContext(), "密码修改失败");
                             dialog.cancel();
                         }
                     });

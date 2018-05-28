@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 
-public class MassageDailog {
+public class MassageDialog {
 	
 	private static AlertDialog.Builder dialog;
 	
