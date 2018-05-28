@@ -50,7 +50,7 @@ public class MainActivity extends FragmentActivity {
                     case R.id.work_button:
                         viewPager.setCurrentItem(2);
                         break;
-                    case R.id.personal_infor_button:
+                    case R.id.person_info_button:
                         viewPager.setCurrentItem(3);
                         break;
                 }
@@ -100,7 +100,7 @@ public class MainActivity extends FragmentActivity {
                         radioGroup.check(R.id.work_button);
                         break;
                     case 3:
-                        radioGroup.check(R.id.personal_infor_button);
+                        radioGroup.check(R.id.person_info_button);
                         break;
                 }
             }
