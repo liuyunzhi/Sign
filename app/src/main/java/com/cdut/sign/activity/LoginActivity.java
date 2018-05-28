@@ -57,7 +57,7 @@ public class LoginActivity extends Activity {
 
         if (preferences.getBoolean("autoLogin", false)) {
             Intent intent = new Intent();
-            intent.setClass(LoginActivity.this, MainActivity.class);
+            intent.setClass(LoginActivity.this, AdActivity.class);
             startActivity(intent);
             LoginActivity.this.finish();
         } else {
@@ -156,6 +156,7 @@ public class LoginActivity extends Activity {
                 if (response.get("code").equals("000000")) {
                     Json data = new Json(response.get("data"));
                     Map<String, String> personInfoMap = new HashMap<>();
+                    personInfoMap.put("id", data.get("id"));
                     personInfoMap.put("studentId", data.get("student_id"));
                     personInfoMap.put("personId", data.get("person_id"));
                     personInfoMap.put("name", data.get("name"));
@@ -169,7 +170,7 @@ public class LoginActivity extends Activity {
                         @Override
                         public void run() {
                             // 启动主页
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, AdActivity.class);
                             startActivity(intent);
                             dialog.dismiss();
                             LoginActivity.this.finish();

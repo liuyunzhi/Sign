@@ -13,6 +13,7 @@ public class SignApplication extends Application {
 
     private String apiUrl;
     private Map<String, String> personInfoMap;
+    private Map<String, String> currentCourseMap;
     private Map<String, String> attendanceRecordMap;
     private static List<WorkInfor> workList;
 
@@ -55,5 +56,13 @@ public class SignApplication extends Application {
 
     public void setApiUrl(String apiUrl) {
         this.apiUrl = apiUrl;
+    }
+
+    public Map<String, String> getCurrentCourseMap() {
+        return currentCourseMap;
+    }
+
+    public void setCurrentCourseMap(Map<String, String> currentCourseMap) {
+        this.currentCourseMap = currentCourseMap;
     }
 }

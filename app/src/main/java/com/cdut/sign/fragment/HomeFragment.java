@@ -1,28 +1,31 @@
 package com.cdut.sign.fragment;
 
-import java.util.Map;
-
-import com.amap.api.services.geocoder.GeocodeSearch;
-import com.cdut.sign.SignApplication;
-import com.cdut.sign.R;
-import com.cdut.sign.activity.SuccessActivity;
-import com.cdut.sign.service.AMapLocationService;
-import com.cdut.sign.util.GeocoderUtil;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.amap.api.services.geocoder.GeocodeSearch;
+import com.cdut.sign.R;
+import com.cdut.sign.SignApplication;
+import com.cdut.sign.activity.FailActivity;
+import com.cdut.sign.activity.SuccessActivity;
+import com.cdut.sign.service.AMapLocationService;
+import com.cdut.sign.util.GeocoderUtil;
+import com.cdut.sign.util.Util;
+
+import java.util.Map;
 
 public class HomeFragment extends Fragment {
 
@@ -33,7 +36,7 @@ public class HomeFragment extends Fragment {
     private TextView currentPosition;
     private SignApplication signApplication;
     //个人信息
-    private Map<String, String> personalInforMap;
+    private Map<String, String> currentCourseMap;
     //广播消息
     private MyBroadcast broadcast;
     //逆地理编码时将地理坐标转换为中文地址（地名描述）的功能。
@@ -58,11 +61,11 @@ public class HomeFragment extends Fragment {
 
         signApplication = (SignApplication) getActivity().getApplication();
         //获取数据
-        personalInforMap = signApplication.getPersonInfoMap();
+        currentCourseMap = signApplication.getCurrentCourseMap();
         //显示数据
 //		imageHead.setImageDrawable(map.get("img"));
-//		signTime.setText(map.get("time"));
-//		signPosition.setText(map.get("address"));
+        signTime.setText(currentCourseMap.get("time"));
+        signPosition.setText(currentCourseMap.get("position"));
         //启用逆地理编码
         geocoderSearch = new GeocodeSearch(getActivity());
         geocoderUtil = new GeocoderUtil(geocoderSearch);
@@ -74,17 +77,39 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 //再次定位
                 startLocationService();
-				//访问服务器
-//	        	Map<String, String> returnInfor = WebServicePost.executeHttpPost(String.valueOf(latitude), String.valueOf(longitude));
-				//将当前坐标上传服务器,判断考勤是否成功
-//				if (returnInfor.get("resCode") == 100)
-                if (true)//仅供测试
-                {
-                    Intent intent = new Intent(getActivity(), SuccessActivity.class);
+                //判断考勤是否成功
+                Double distance = Util.GetDistance(latitude, longitude, Double.parseDouble(currentCourseMap.get("latitude")), Double.parseDouble(currentCourseMap.get("longitude")));
+                Long timeDifference = Util.stringToDate(currentCourseMap.get("time")).getTime() - System.currentTimeMillis();
+                if (distance < 0.05) {
+                    if (timeDifference <= 300000.0) {
+                        Intent intent = new Intent(getActivity(), SuccessActivity.class);
+                        intent.putExtra("city", city);
+                        intent.putExtra("dtc", district);
+                        startActivity(intent);
+                    } else if (timeDifference < 0) {
+                        Intent intent = new Intent(getActivity(), FailActivity.class);
+                        intent.putExtra("note", "迟到打卡");
+                        intent.putExtra("city", city);
+                        intent.putExtra("dtc", district);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(getActivity(), FailActivity.class);
+                        intent.putExtra("note", "未进入考勤时间");
+                        intent.putExtra("city", city);
+                        intent.putExtra("dtc", district);
+                        startActivity(intent);
+                    }
+                } else {
+                    Intent intent = new Intent(getActivity(), FailActivity.class);
+                    intent.putExtra("note", "未进入考勤范围");
                     intent.putExtra("city", city);
                     intent.putExtra("dtc", district);
                     startActivity(intent);
                 }
+                Log.e("latitude", String.valueOf(latitude));
+                Log.e("longitude", String.valueOf(longitude));
+                Log.e("distance", String.valueOf(distance));
+                Log.e("timeDifference", String.valueOf(timeDifference));
             }
         });
 

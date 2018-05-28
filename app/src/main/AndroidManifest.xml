@@ -26,11 +26,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.AdActivity"></activity>
+
         <activity android:name=".activity.MainActivity"></activity>
 
         <activity android:name=".activity.LocationMapActivity"></activity>
 
         <activity android:name=".activity.SuccessActivity"></activity>
+
+        <activity android:name=".activity.FailActivity"></activity>
 
         <activity android:name=".activity.EditWorkActivity"></activity>
     </application>
