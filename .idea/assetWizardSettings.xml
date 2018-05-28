@@ -23,7 +23,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/D:/Program/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_add_circle_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/D:/Program/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_check_circle_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -33,9 +33,10 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="add_note" />
+                                      <entry key="imageAsset" value="D:\Workspace\Android\Sign\app\src\main\res\drawable\success.png" />
+                                      <entry key="outputName" value="sign_success" />
                                       <entry key="theme" value="CUSTOM" />
-                                      <entry key="themeColor" value="428afe" />
+                                      <entry key="themeColor" value="25ae88" />
                                     </map>
                                   </option>
                                 </PersistentState>
