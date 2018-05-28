@@ -2,11 +2,11 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/activity/LocationMapActivity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/adapter/WorkListAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/adapter/NoteListAdapter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/fragment/AttendanceRecordFragment.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/fragment/HomeFragment.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/fragment/PersonalInforFragment.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/fragment/WorkFragment.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/fragment/NoteFragment.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/fragment/PersonInfoFragment.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/net/SendGet.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/net/SendPost.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/cdut/sign/service/AMapLocationService.java" charset="UTF-8" />

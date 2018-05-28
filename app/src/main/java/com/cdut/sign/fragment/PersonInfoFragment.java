@@ -30,7 +30,7 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 
-public class PersonalInforFragment extends Fragment {
+public class PersonInfoFragment extends Fragment {
 
     private Button modifyPasswordButton;
     private Button logoutButton;

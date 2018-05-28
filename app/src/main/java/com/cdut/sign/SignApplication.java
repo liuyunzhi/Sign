@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.cdut.sign.util.WorkInfor;
+import com.cdut.sign.util.Note;
 
 public class SignApplication extends Application {
 
@@ -15,14 +15,14 @@ public class SignApplication extends Application {
     private Map<String, String> personInfoMap;
     private Map<String, String> currentCourseMap;
     private Map<String, String> attendanceRecordMap;
-    private static List<WorkInfor> workList;
+    private static List<Note> noteList;
 
     @Override
     public void onCreate() {
         super.onCreate();
         personInfoMap = new HashMap<>();
         attendanceRecordMap = new HashMap<>();
-        workList = new ArrayList<>();
+        noteList = new ArrayList<>();
         apiUrl = "http://39.106.160.99/api/index";
     }
 
@@ -42,12 +42,12 @@ public class SignApplication extends Application {
         return attendanceRecordMap;
     }
 
-    public static void setWorkList(List<WorkInfor> list) {
-        workList = list;
+    public static void setNoteList(List<Note> list) {
+        noteList = list;
     }
 
-    public static List<WorkInfor> getWorkList() {
-        return workList;
+    public static List<Note> getNoteList() {
+        return noteList;
     }
 
     public String getApiUrl() {

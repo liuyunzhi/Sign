@@ -36,7 +36,7 @@
 
         <activity android:name=".activity.FailActivity"></activity>
 
-        <activity android:name=".activity.EditWorkActivity"></activity>
+        <activity android:name=".activity.EditNoteActivity"></activity>
     </application>
 
     <!--用于进行网络定位-->

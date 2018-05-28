@@ -22,8 +22,8 @@ public class MainActivity extends FragmentActivity {
 
     private HomeFragment home;
     private AttendanceRecordFragment attendanceRecord;
-    private WorkFragment work;
-    private PersonalInforFragment personalInfo;
+    private NoteFragment work;
+    private PersonInfoFragment personalInfo;
     List<Fragment> allFragment;
 
     @SuppressWarnings("deprecation")
@@ -61,8 +61,8 @@ public class MainActivity extends FragmentActivity {
 
         home = new HomeFragment();
         attendanceRecord = new AttendanceRecordFragment();
-        work = new WorkFragment();
-        personalInfo = new PersonalInforFragment();
+        work = new NoteFragment();
+        personalInfo = new PersonInfoFragment();
 
         allFragment.add(home);
         allFragment.add(attendanceRecord);
